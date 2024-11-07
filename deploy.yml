@@ -1,0 +1,179 @@
+import React, { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { ExternalLink, Fish } from 'lucide-react';
+
+const RandomLinkGenerator = () => {
+  const links = [
+    { url: 'https://t.co/bXWhMOsIpl', title: 'fren 1' },
+    { url: 'https://t.co/DGCirEvozr', title: 'fren 2' },
+    { url: 'https://t.co/p4hdygMzkH', title: 'fren 3' },
+    { url: 'https://t.co/g1Zw8ZCJmE', title: 'fren 4' },
+    { url: 'https://t.co/KFPW3s2lhI', title: 'fren 5' },
+    { url: 'https://t.co/T8QjAFh5WX', title: 'fren 6' },
+    { url: 'https://t.co/DnM65rrKvR', title: 'fren 7' },
+    { url: 'https://t.co/HnhmIhnSPO', title: 'fren 8' },
+    { url: 'https://t.co/3c6s7oUWKN', title: 'fren 9' },
+    { url: 'https://www.pond0x.com/swap/solana?ref=NvmaEpBytGVkgKyqueMVbeFJMKHmZ9ma9ua2oWY22bHtL9um8uqq62zaLfBu', title: 'pond0x' },
+    { url: 'https://t.co/j7SIjs3OGZ', title: 'fren 10' },
+    { url: 'https://t.co/cCW2KUPTWX', title: 'fren 11' },
+    { url: 'https://t.co/WS6Z35J2au', title: 'fren 12' },
+    { url: 'https://t.co/dyvkUMB0ls', title: 'fren 13' },
+    { url: 'https://t.co/MdKCnRhetL', title: 'fren 14' },
+    { url: 'https://t.co/OngJbEVoEg', title: 'fren 15' },
+    { url: 'https://t.co/EKUc0NifAB', title: 'fren 16' },
+    { url: 'https://t.co/GoEmkNyTWm', title: 'fren 17' },
+    { url: 'https://t.co/Gs8DVyd6Zu', title: 'fren 18' },
+    { url: 'https://t.co/0nEEDMMafw', title: 'fren 19' },
+    { url: 'https://pond0x.com/swap/solana?ref=QDNk5TQjywRLqWsLAnHYuGTQnpnorm2XTTXbvCcp5cNc8PDQGnm5FZjMUeKz', title: 'pond0x alt' },
+    { url: 'https://t.co/DNvkXDjHCt', title: 'fren 20' }
+  ];
+
+  const [currentLink, setCurrentLink] = useState(null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [ripples, setRipples] = useState([]);
+
+  const addRipple = (e) => {
+    const rect = e.target.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const newRipple = {
+      x,
+      y,
+      id: Date.now()
+    };
+    
+    setRipples(prev => [...prev, newRipple]);
+    setTimeout(() => {
+      setRipples(prev => prev.filter(ripple => ripple.id !== newRipple.id));
+    }, 1000);
+  };
+
+  const generateRandomLink = () => {
+    setIsAnimating(true);
+    const randomIndex = Math.floor(Math.random() * links.length);
+    setCurrentLink(links[randomIndex]);
+    setTimeout(() => setIsAnimating(false), 500);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-300 via-blue-400 to-blue-500 p-4 flex items-center justify-center relative overflow-hidden">
+      {/* Lily pads */}
+      {[...Array(5)].map((_, i) => (
+        <div
+          key={`lily-${i}`}
+          className="absolute rounded-full bg-green-400/20 w-24 h-24"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
+            transform: `rotate(${Math.random() * 360}deg) scale(${0.5 + Math.random()})`,
+          }}
+        >
+          <div className="absolute inset-2 rounded-full bg-green-300/30" />
+        </div>
+      ))}
+
+      <Card className="w-full max-w-md bg-white/80 backdrop-blur-md shadow-xl relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-green-100/50 rounded-lg" />
+        
+        <CardHeader className="relative">
+          <CardTitle className="text-4xl font-bold text-center text-blue-700">
+            <span className="relative">
+              pond frens
+              <Fish className="absolute -right-12 -top-1 text-blue-500 animate-bounce" size={24} />
+            </span>
+            <div className="text-sm text-blue-500 mt-2 font-normal">make a splash, find a fren</div>
+          </CardTitle>
+        </CardHeader>
+
+        <CardContent className="space-y-6 p-6 relative">
+          <Button 
+            onClick={(e) => {
+              generateRandomLink();
+              addRipple(e);
+            }}
+            className="w-full text-lg h-14 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 transition-all transform hover:-translate-y-1 rounded-xl shadow-lg relative overflow-hidden"
+          >
+            find a fren
+            {ripples.map(ripple => (
+              <span
+                key={ripple.id}
+                className="absolute bg-white/30 rounded-full animate-ripple"
+                style={{
+                  left: ripple.x,
+                  top: ripple.y,
+                  width: '200px',
+                  height: '200px',
+                  marginLeft: '-100px',
+                  marginTop: '-100px'
+                }}
+              />
+            ))}
+          </Button>
+
+          {currentLink && (
+            <a
+              href={currentLink.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`block p-6 mt-4 bg-blue-50/80 rounded-xl border border-blue-200 hover:bg-blue-100/80 transition-all transform hover:-translate-y-1 shadow-lg ${
+                isAnimating ? 'animate-pulse' : ''
+              }`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-blue-600 hover:underline text-lg">
+                  {currentLink.title}
+                </span>
+                <ExternalLink className="h-5 w-5 text-blue-500" />
+              </div>
+            </a>
+          )}
+
+          <div className="text-center text-sm text-blue-600/80 mt-4">
+            {!currentLink && "jump in, the water's fine! 🌊"}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Animated bubbles */}
+      {[...Array(8)].map((_, i) => (
+        <div
+          key={`bubble-${i}`}
+          className="absolute rounded-full bg-white/20 animate-float"
+          style={{
+            width: `${Math.random() * 30 + 10}px`,
+            height: `${Math.random() * 30 + 10}px`,
+            left: `${Math.random() * 100}%`,
+            bottom: '-20px',
+            animationDelay: `${Math.random() * 5}s`,
+            animationDuration: `${5 + Math.random() * 5}s`
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+// Add custom animations
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-100vh) translateX(${Math.random() * 100 - 50}px); opacity: 0; }
+  }
+  .animate-float {
+    animation: float linear infinite;
+  }
+  @keyframes ripple {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(1); opacity: 0; }
+  }
+  .animate-ripple {
+    animation: ripple 1s linear;
+  }
+`;
+document.head.appendChild(style);
+
+export default RandomLinkGenerator;
