@@ -105,9 +105,14 @@ generateBtn.addEventListener("click", (event) => {
   document.body.appendChild(ripple);
   setTimeout(() => ripple.remove(), 600);
 
-  // Add lily animation
+  // Add lily animation with random image
   const lily = document.createElement("div");
   lily.classList.add("lily");
+
+  // Randomly choose one of the two images
+  const lilyImage = Math.random() > 0.5 ? 'IMG_0280.png' : 'IMG_0283.png';
+  lily.style.backgroundImage = `url('${lilyImage}')`;
+
   document.body.appendChild(lily);
   setTimeout(() => lily.remove(), 10000);
 });
