@@ -1,37 +1,88 @@
-/* Reset defaults and set up responsive viewport */
-html, body {
+/* Reset defaults and ensure full coverage */
+* {
   margin: 0;
   padding: 0;
-  min-height: 100%;
+  box-sizing: border-box;
+}
+
+html, body {
   height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrolling */
 }
 
 body {
   font-family: 'Trebuchet MS', sans-serif;
-  background-color: #87CEEB;
   background-image: url('Background.jpeg');
-  background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Keeps background fixed while scrolling */
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  overflow-x: hidden; /* Changed from hidden to allow vertical scroll if needed */
+  position: relative;
+}
+
+/* Portrait mode (upright phone) */
+@media screen and (orientation: portrait) {
+  body {
+    background-size: auto 100vh; /* This will show the full height */
+  }
+}
+
+/* Landscape mode */
+@media screen and (orientation: landscape) {
+  body {
+    background-size: 100vw auto; /* This will show the full width */
+  }
+}
+
+/* Specific adjustments for iPhone 11 Pro */
+@media screen and (device-width: 375px) and (device-height: 812px), 
+       screen and (width: 375px) and (height: 812px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 .container {
-  background-color: #4682B4;
-  padding: clamp(1rem, 4vw, 2rem); /* Responsive padding */
+  background-color: rgba(70, 130, 180, 0.8); /* Semi-transparent blue */
+  padding: clamp(1rem, 4vw, 2rem);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
-  width: min(90%, 600px); /* Responsive width with max-width */
+  width: min(90%, 600px);
   margin: 1rem;
+  backdrop-filter: blur(5px); /* Add slight blur to container background */
+}
+
+button {
+  background-color: #228B22;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add text shadow for better visibility */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+}
+
+button:hover {
+  background-color: #1E8449;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .ripple {
@@ -40,39 +91,23 @@ body {
   border-radius: 50%;
   transform: scale(0);
   animation: ripple 0.6s linear;
-  pointer-events: none; /* Ensures ripple doesn't interfere with clicks */
+  pointer-events: none;
 }
 
 .lily {
   position: absolute;
-  width: clamp(30px, 5vw, 50px); /* Responsive size */
+  width: clamp(30px, 5vw, 50px);
   height: clamp(30px, 5vw, 50px);
   background-image: url('IMG_0280.png');
   background-size: cover;
   animation: swimming 10s linear infinite;
 }
 
-button {
-  background-color: #228B22;
-  color: white;
-  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 4vw, 2rem);
-  border: none;
-  border-radius: 4px;
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  cursor: pointer;
-  transition: background-color 0.3s;
-  width: fit-content; /* Ensures button width matches content */
-}
-
-button:hover {
-  background-color: #1E8449;
-}
-
 #link-display {
   margin-top: 1.5rem;
   font-size: clamp(1rem, 3vw, 1.2rem);
   color: white;
-  word-break: break-word; /* Ensures long links don't overflow */
+  word-break: break-word;
 }
 
 .pond-fren {
@@ -80,7 +115,6 @@ button:hover {
   font-weight: bold;
 }
 
-/* Animation keyframes */
 @keyframes ripple {
   to {
     transform: scale(4);
@@ -97,37 +131,12 @@ button:hover {
   }
 }
 
-/* Media Queries */
-@media screen and (max-width: 768px) {
+/* Handle notched phones */
+@supports (padding: env(safe-area-inset-top)) {
   body {
-    background-attachment: scroll; /* Better performance on mobile */
-  }
-  
-  .container {
-    margin: 0.5rem;
-  }
-  
-  .lily {
-    animation-duration: 8s; /* Slightly faster animation on mobile */
-  }
-}
-
-/* Handle landscape orientation */
-@media screen and (max-height: 500px) and (orientation: landscape) {
-  body {
-    padding: 1rem 0;
-  }
-  
-  .container {
-    margin: 0.5rem;
-    max-height: 80vh;
-    overflow-y: auto;
-  }
-}
-
-/* High-DPI screens */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  body {
-    background-size: cover;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 }
