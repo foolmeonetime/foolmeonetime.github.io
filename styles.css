@@ -8,7 +8,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
 body {
@@ -25,17 +25,22 @@ body {
   position: relative;
 }
 
-/* Portrait mode (upright phone) */
+/* Portrait mode - showing more of the image */
 @media screen and (orientation: portrait) {
   body {
-    background-size: auto 100vh; /* This will show the full height */
+    background-size: contain; /* This will ensure the entire image is visible */
+    background-position: center center;
+    /* Add a scale transform to ensure no white spaces */
+    transform: scale(1.1);
+    background-color: transparent; /* Ensure no background color shows */
   }
 }
 
 /* Landscape mode */
 @media screen and (orientation: landscape) {
   body {
-    background-size: 100vw auto; /* This will show the full width */
+    background-size: cover;
+    transform: none;
   }
 }
 
@@ -43,13 +48,13 @@ body {
 @media screen and (device-width: 375px) and (device-height: 812px), 
        screen and (width: 375px) and (height: 812px) {
   body {
-    background-size: cover;
-    background-position: center;
+    background-size: 120vw auto; /* Slightly wider than viewport to ensure coverage */
+    transform: none;
   }
 }
 
 .container {
-  background-color: rgba(70, 130, 180, 0.8); /* Semi-transparent blue */
+  background-color: rgba(70, 130, 180, 0.8);
   padding: clamp(1rem, 4vw, 2rem);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -57,7 +62,7 @@ body {
   overflow: hidden;
   width: min(90%, 600px);
   margin: 1rem;
-  backdrop-filter: blur(5px); /* Add slight blur to container background */
+  backdrop-filter: blur(5px);
 }
 
 button {
@@ -70,8 +75,8 @@ button {
   cursor: pointer;
   transition: all 0.3s ease;
   width: fit-content;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Add text shadow for better visibility */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
@@ -85,6 +90,7 @@ button:active {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Rest of your existing styles remain the same */
 .ripple {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.5);
