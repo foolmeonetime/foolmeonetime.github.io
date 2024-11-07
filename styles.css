@@ -32,20 +32,17 @@ body {
   z-index: -1;
 }
 
-/* Portrait mode */
+/* Portrait mode - Optimized for mobile devices */
 @media screen and (orientation: portrait) {
   .background-wrapper {
     background-image: url('Background.jpeg');
     background-repeat: no-repeat;
-    background-position: center;
-    /* Scale to show full width while maintaining aspect ratio */
-    background-size: 100% auto;
-    /* Move image to center */
-    background-position: 50% 50%;
+    background-position: center center; /* Keeps focal point centered */
+    background-size: cover; /* Ensures full screen fit with aspect ratio */
   }
 }
 
-/* Landscape mode */
+/* Landscape mode - Optimized for wider screens */
 @media screen and (orientation: landscape) {
   .background-wrapper {
     background-image: url('Background.jpeg');
@@ -55,18 +52,17 @@ body {
   }
 }
 
-/* iPhone 11 Pro specific adjustments */
+/* iPhone 11 Pro specific adjustments - Optional, can be removed if no longer needed */
 @media screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait),
        screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
   .background-wrapper {
-    background-size: contain;
-    transform: scale(1.5);
-    transform-origin: center center;
+    background-size: cover;
+    background-position: center center;
   }
 }
 
 .container {
-  background-color: rgba(70, 130, 180, 0.8);
+  background-color: rgba(70, 130, 180, 0.8); /* Semi-transparent dark blue */
   padding: clamp(1rem, 4vw, 2rem);
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
