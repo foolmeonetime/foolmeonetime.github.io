@@ -1,7 +1,7 @@
 body {
   font-family: 'Trebuchet MS', sans-serif;
   background-color: #87CEEB; /* Light blue background fallback */
-  background-image: url('your-background-image.png'); /* Replace with your image file name */
+  background-image: url('Background.jpeg'); /* Replace with your image file name */
   background-size: cover; /* Ensures the image covers the whole viewport */
   background-position: center;
   background-repeat: no-repeat; /* Prevents the image from tiling */
