@@ -25,14 +25,11 @@ body {
   position: relative;
 }
 
-/* Portrait mode - showing more of the image */
+/* Portrait mode - much more zoomed out */
 @media screen and (orientation: portrait) {
   body {
-    background-size: contain; /* This will ensure the entire image is visible */
+    background-size: 250vw auto; /* Much wider view to show more of the image */
     background-position: center center;
-    /* Add a scale transform to ensure no white spaces */
-    transform: scale(1.1);
-    background-color: transparent; /* Ensure no background color shows */
   }
 }
 
@@ -40,7 +37,6 @@ body {
 @media screen and (orientation: landscape) {
   body {
     background-size: cover;
-    transform: none;
   }
 }
 
@@ -48,8 +44,7 @@ body {
 @media screen and (device-width: 375px) and (device-height: 812px), 
        screen and (width: 375px) and (height: 812px) {
   body {
-    background-size: 120vw auto; /* Slightly wider than viewport to ensure coverage */
-    transform: none;
+    background-size: 200vw auto; /* Adjusted specifically for iPhone 11 Pro */
   }
 }
 
@@ -63,6 +58,7 @@ body {
   width: min(90%, 600px);
   margin: 1rem;
   backdrop-filter: blur(5px);
+  z-index: 1; /* Ensure container stays above background */
 }
 
 button {
@@ -90,7 +86,6 @@ button:active {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Rest of your existing styles remain the same */
 .ripple {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.5);
@@ -107,6 +102,7 @@ button:active {
   background-image: url('IMG_0280.png');
   background-size: cover;
   animation: swimming 10s linear infinite;
+  z-index: 0;
 }
 
 #link-display {
