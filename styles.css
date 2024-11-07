@@ -1,4 +1,4 @@
-/* Reset defaults and ensure full coverage */
+/* Reset defaults */
 * {
   margin: 0;
   padding: 0;
@@ -23,7 +23,6 @@ body {
   justify-content: center;
 }
 
-/* Create a background wrapper div to handle the image */
 .background-wrapper {
   position: fixed;
   top: 0;
@@ -31,19 +30,18 @@ body {
   width: 100%;
   height: 100%;
   z-index: -1;
-  overflow: hidden;
 }
 
-/* Portrait mode - much more zoomed out */
+/* Portrait mode */
 @media screen and (orientation: portrait) {
   .background-wrapper {
     background-image: url('Background.jpeg');
     background-repeat: no-repeat;
     background-position: center;
-    /* Scale relative to viewport height */
-    background-size: auto 400vh;
-    transform: scale(0.4); /* Dramatically reduce the scale */
-    transform-origin: center center;
+    /* Scale to show full width while maintaining aspect ratio */
+    background-size: 100% auto;
+    /* Move image to center */
+    background-position: 50% 50%;
   }
 }
 
@@ -54,7 +52,16 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    transform: none;
+  }
+}
+
+/* iPhone 11 Pro specific adjustments */
+@media screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait),
+       screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
+  .background-wrapper {
+    background-size: contain;
+    transform: scale(1.5);
+    transform-origin: center center;
   }
 }
 
