@@ -7,7 +7,16 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="background-wrapper"></div>
+  <div class="background-wrapper">
+    <video id="background-video" autoplay muted loop>
+      <source src="e4297e98_89bb_46e4_90fe_a6e8ef832116.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <audio id="background-audio" autoplay loop>
+      <source src="WaterSound.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
   <div class="container">
     <button id="generate-btn">Make a Fren</button>
     <div id="link-display"></div>
