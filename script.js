@@ -1,4 +1,4 @@
-const links = [
+Is the ripple effect apart of the problem const links = [
   { url: "https://t.co/YulB6ZVk4h", label: "Pond Fren 1" },
   { url: "https://t.co/QYb9d5C26Y", label: "Pond Fren 2" },
   { url: "https://t.co/9sIzVlRS5f", label: "Pond Fren 3" },
@@ -97,6 +97,15 @@ generateBtn.addEventListener("click", (event) => {
   const randomIndex = Math.floor(Math.random() * links.length);
   const randomLink = links[randomIndex];
   linkDisplay.innerHTML = `Your Pond Fren is: <a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
+
+  // Create ripple effect
+  const ripple = document.createElement("div");
+  ripple.classList.add("ripple");
+  ripple.style.left = `${event.clientX - 50}px`;
+  ripple.style.top = `${event.clientY - 50}px`;
+  document.body.appendChild(ripple);
+  setTimeout(() => ripple.remove(), 600);
+});
 
 // Play background audio automatically (requires user interaction on some devices)
 backgroundAudio.play().catch(() => {
