@@ -1,4 +1,4 @@
-Is the ripple effect apart of the problem const links = [
+const links = [
   { url: "https://t.co/YulB6ZVk4h", label: "Pond Fren 1" },
   { url: "https://t.co/QYb9d5C26Y", label: "Pond Fren 2" },
   { url: "https://t.co/9sIzVlRS5f", label: "Pond Fren 3" },
