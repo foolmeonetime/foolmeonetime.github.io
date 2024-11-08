@@ -151,6 +151,12 @@ const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
 const backgroundAudio = document.getElementById("background-audio");
 
+// Create pause button
+const pauseBtn = document.createElement("button");
+pauseBtn.id = "pause-btn";
+pauseBtn.textContent = "Pause Audio";
+document.body.appendChild(pauseBtn);
+
 generateBtn.addEventListener("click", (event) => {
   const randomIndex = Math.floor(Math.random() * links.length);
   const randomLink = links[randomIndex];
@@ -170,4 +176,15 @@ backgroundAudio.play().catch(() => {
   generateBtn.addEventListener("click", () => {
     backgroundAudio.play();
   });
+});
+
+// Pause button functionality
+pauseBtn.addEventListener("click", () => {
+  if (backgroundAudio.paused) {
+    backgroundAudio.play();
+    pauseBtn.textContent = "Pause Audio";
+  } else {
+    backgroundAudio.pause();
+    pauseBtn.textContent = "Play Audio";
+  }
 });
