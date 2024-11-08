@@ -1,4 +1,4 @@
-/* Reset defaults */
+/* Basic Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,132 +6,32 @@
 }
 
 html, body {
-  height: 100%;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-body {
-  font-family: 'Trebuchet MS', sans-serif;
-  margin: 0;
-  position: relative;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.background-wrapper {
+/* Background Video Styling */
+#background-video {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   z-index: -1;
 }
 
-#background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
+/* Animation Container */
+#animation-container {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
 }
 
-.container {
-  background-color: rgba(70, 130, 180, 0.8); /* Semi-transparent dark blue */
-  padding: clamp(1rem, 4vw, 2rem);
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  width: min(90%, 600px);
-  margin: 1rem;
-  backdrop-filter: blur(5px);
-  z-index: 1;
-}
-
-button {
-  background-color: #228B22;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  width: fit-content;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-  background-color: #1E8449;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
-}
-
-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.ripple {
-  position: absolute;
-  background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-  pointer-events: none;
-}
-
-.lily {
-  position: absolute;
-  width: clamp(30px, 5vw, 50px);
-  height: clamp(30px, 5vw, 50px);
-  background-image: url('IMG_0280.png');
-  background-size: cover;
-  animation: swimming 10s linear infinite;
-  z-index: 0;
-}
-
-#link-display {
-  margin-top: 1.5rem;
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  color: white;
-  word-break: break-word;
-}
-
-.pond-fren {
-  color: #4CAF50;
-  font-weight: bold;
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-@keyframes swimming {
-  0% {
-    transform: translateX(-100%) translateY(0);
-  }
-  100% {
-    transform: translateX(100%) translateY(0);
-  }
-}
-
-/* Handle notched phones */
-@supports (padding: env(safe-area-inset-top)) {
-  body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-  }
+/* WebGL Canvas */
+#webgl-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
