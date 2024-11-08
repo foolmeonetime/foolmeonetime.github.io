@@ -98,15 +98,6 @@ generateBtn.addEventListener("click", (event) => {
   const randomLink = links[randomIndex];
   linkDisplay.innerHTML = `Your Pond Fren is: <a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
 
-  // Create ripple effect
-  const ripple = document.createElement("div");
-  ripple.classList.add("ripple");
-  ripple.style.left = `${event.clientX - 50}px`;
-  ripple.style.top = `${event.clientY - 50}px`;
-  document.body.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 600);
-});
-
 // Play background audio automatically (requires user interaction on some devices)
 backgroundAudio.play().catch(() => {
   generateBtn.addEventListener("click", () => {
