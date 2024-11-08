@@ -80,13 +80,12 @@ const links = [
   { url: "https://t.co/y4KvlzQuPC", label: "Pond Fren 79" },
   { url: "https://t.co/Lr7pFuhW9I", label: "Pond Fren 80" },
   { url: "https://t.co/5OKiJ8WvD9", label: "Pond Fren 81" },
-  { url: "https://t.co/8cPUMuLbhg", label: "Pond Fren 82" },
-  { url: "https://t.co/UCIJRE0qOp", label: "Pond Fren 83" },
-  { url: "https://t.co/s7C2pD9My7", label: "Pond Fren 84" },
-  { url: "https://t.co/TyKp9yH4Sx", label: "Pond Fren 85" },
-  { url: "https://t.co/JkIZJgAmsC", label: "Pond Fren 86" },
-  { url: "https://t.co/M3ZgIbSEok", label: "Pond Fren 87" },
-  { url: "https://t.co/wvD93hFw8A", label: "Pond Fren 88" }
+  { url: "https://t.co/UCIJRE0qOp", label: "Pond Fren 82" },
+  { url: "https://t.co/s7C2pD9My7", label: "Pond Fren 83" },
+  { url: "https://t.co/TyKp9yH4Sx", label: "Pond Fren 84" },
+  { url: "https://t.co/JkIZJgAmsC", label: "Pond Fren 85" },
+  { url: "https://t.co/M3ZgIbSEok", label: "Pond Fren 86" }
+  { url: "https://t.co/wvD93hFw8A", label: "Pond Fren 87" }
 ];
 
 const generateBtn = document.getElementById("generate-btn");
