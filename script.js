@@ -1,41 +1,60 @@
-const links = [
-  { url: "https://t.co/YulB6ZVk4h", label: "Pond Fren 1" },
-  { url: "https://t.co/QYb9d5C26Y", label: "Pond Fren 2" },
-  { url: "https://t.co/9sIzVlRS5f", label: "Pond Fren 3" },
-  { url: "https://t.co/DGCirEvozr", label: "Pond Fren 4" },
-  { url: "https://t.co/Tit6DuCYOH", label: "Pond Fren 5" },
-  { url: "https://t.co/My3eQlKwUz", label: "Pond Fren 6" },
-  { url: "https://pond0x.com/swap/solana?ref=JfYMRqw4B3Sj88H8BTB1FUUUjdv2hJZr4hHmGsq3QSn62p2J4XLPmA8G7GCu", label: "Pond Fren 7" },
-  { url: "https://t.co/7twAFaWMd8", label: "Pond Fren 8" },
-  { url: "https://t.co/xpTNw2Ee2G", label: "Pond Fren 9" },
-  { url: "https://t.co/T2ZwW1080e", label: "Pond Fren 10" },
-  // Add more links here as needed
-];
+// Select video and audio elements
+const video = document.getElementById('background-video');
+const audio = document.getElementById('background-audio');
 
-const generateBtn = document.getElementById("generate-btn");
-const linkDisplay = document.getElementById("link-display");
+// Ensure autoplay and loop behavior
+window.addEventListener('load', () => {
+  // Attempt to play video
+  video.play().catch(() => {
+    console.log('Autoplay blocked for video, waiting for user interaction.');
+  });
 
-generateBtn.addEventListener("click", (event) => {
-  const randomIndex = Math.floor(Math.random() * links.length);
-  const randomLink = links[randomIndex];
-  linkDisplay.innerHTML = `Your Pond Fren is: <a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
+  // Attempt to play audio
+  audio.play().catch(() => {
+    console.log('Autoplay blocked for audio, waiting for user interaction.');
+  });
+});
 
-  // Create ripple effect
-  const ripple = document.createElement("div");
-  ripple.classList.add("ripple");
-  ripple.style.left = `${event.clientX - 50}px`;
-  ripple.style.top = `${event.clientY - 50}px`;
-  document.body.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 600);
+// 3D Animation Setup
+const canvas = document.getElementById('webgl-canvas');
+const renderer = new THREE.WebGLRenderer({ canvas });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 
-  // Add lily animation with random image
-  const lily = document.createElement("div");
-  lily.classList.add("lily");
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+camera.position.z = 5;
 
-  // Randomly choose one of the two images
-  const lilyImage = Math.random() > 0.5 ? 'IMG_0280.png' : 'IMG_0283.png';
-  lily.style.backgroundImage = `url('${lilyImage}')`;
+// Lighting
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+scene.add(ambientLight);
 
-  document.body.appendChild(lily);
-  setTimeout(() => lily.remove(), 10000);
+const pointLight = new THREE.PointLight(0xffffff, 1);
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
+
+// Create a luminous lily pad
+const lilyPadGeometry = new THREE.CircleGeometry(1, 32);
+const lilyPadMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00, transparent: true, opacity: 0.7 });
+const lilyPad = new THREE.Mesh(lilyPadGeometry, lilyPadMaterial);
+lilyPad.position.set(0, 0, 0);
+scene.add(lilyPad);
+
+// Animation loop
+function animate() {
+  requestAnimationFrame(animate);
+
+  // Rotate the lily pad
+  lilyPad.rotation.z += 0.01;
+
+  renderer.render(scene, camera);
+}
+
+animate();
+
+// Handle window resizing
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
 });
