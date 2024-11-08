@@ -32,33 +32,13 @@ body {
   z-index: -1;
 }
 
-/* Portrait mode - Optimized for mobile devices */
-@media screen and (orientation: portrait) {
-  .background-wrapper {
-    background-image: url('Background.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center; /* Keeps focal point centered */
-    background-size: cover; /* Ensures full screen fit with aspect ratio */
-  }
-}
-
-/* Landscape mode - Optimized for wider screens */
-@media screen and (orientation: landscape) {
-  .background-wrapper {
-    background-image: url('Background.jpeg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-  }
-}
-
-/* iPhone 11 Pro specific adjustments - Optional, can be removed if no longer needed */
-@media screen and (device-width: 375px) and (device-height: 812px) and (orientation: portrait),
-       screen and (width: 375px) and (height: 812px) and (orientation: portrait) {
-  .background-wrapper {
-    background-size: cover;
-    background-position: center center;
-  }
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .container {
