@@ -76,7 +76,7 @@ button:active {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
   color: #fff;
   border: none;
   border-radius: 50%;
