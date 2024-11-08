@@ -3,28 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover your Pond Fren with a fun and interactive experience. Generate a random link to a Pond Fren with one click!">
+  <meta name="theme-color" content="#0e4d92">
   <title>Pond Link Generator</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="e4297e98_89bb_46e4_90fe_a6e8ef832116.mov" as="video">
+  <link rel="preload" href="WaterSound.mp3" as="audio">
 </head>
 <body>
-  <video id="background-video" autoplay loop muted playsinline>
+  <!-- Background Video -->
+  <video
+    id="background-video"
+    autoplay
+    loop
+    muted
+    playsinline
+    aria-hidden="true"
+    preload="auto"
+    class="background-video"
+  >
     <source src="e4297e98_89bb_46e4_90fe_a6e8ef832116.mov" type="video/mp4">
     Your browser does not support the video tag.
   </video>
-  <audio id="background-audio" autoplay loop>
+
+  <!-- Background Audio -->
+  <audio id="background-audio" autoplay loop preload="auto">
     <source src="WaterSound.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
-  <div id="animation-container"></div>
+  <!-- 3D Animation Container -->
+  <div id="animation-container" aria-label="Interactive 3D animation"></div>
 
+  <!-- Main Content Container -->
   <div class="container">
-    <button id="generate-btn">Make a Fren</button>
-    <div id="link-display"></div>
+    <button id="generate-btn" aria-label="Generate a Pond Fren link">🐸 Make a Fren</button>
+    <div id="link-display" aria-live="polite"></div>
   </div>
 
-  <script src="three.min.js"></script>
-  <script src="animation.js"></script>
-  <script src="script.js"></script>
+  <!-- Pause/Play Button -->
+  <button id="pause-btn" aria-label="Pause video" class="control-btn">⏸️</button>
+
+  <!-- JavaScript Files -->
+  <script src="three.min.js" defer></script>
+  <script src="animation.js" defer></script>
+  <script src="script.js" defer></script>
+  <script src="controls.js" defer></script>
 </body>
 </html>
