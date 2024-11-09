@@ -150,6 +150,7 @@ const links = [
 const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
 const backgroundAudio = document.getElementById("background-audio");
+const backgroundVideo = document.getElementById("background-video");
 
 // Create pause button
 const pauseBtn = document.createElement("button");
@@ -169,6 +170,10 @@ generateBtn.addEventListener("click", (event) => {
   ripple.style.top = `${event.clientY - 50}px`;
   document.body.appendChild(ripple);
   setTimeout(() => ripple.remove(), 600);
+
+  // Play background video
+  backgroundVideo.play();
+  backgroundVideo.loop = true;
 });
 
 // Play background audio automatically (requires user interaction on some devices)
