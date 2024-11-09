@@ -20,6 +20,7 @@ html, body {
   object-fit: cover;
   z-index: -2;
   opacity: 0.8;
+  pointer-events: none; /* Ensure the video doesn't interfere with other elements */
 }
 
 #animation-container {
