@@ -144,7 +144,15 @@ const links = [
   { url: "https://t.co/kIvOKgHCoS", label: "Pond Fren 143" },
   { url: "https://t.co/JLy8Nr1Pq7", label: "Pond Fren 144" },
   { url: "https://t.co/SaGUNdnvwU", label: "Pond Fren 145" },
-  { url: "https://t.co/uvmwo4G6H5", label: "Pond Fren 146" }
+  { url: "https://t.co/uvmwo4G6H5", label: "Pond Fren 146" },
+  { url: "https://t.co/FiUbhfDb1J", label: "Pond Fren 147" },
+  { url: "https://www.pond0x.com/swap/solana?ref=KKd5FSK8wtagoSvzvkicAJgqrnxQumcyX8vfCgWymVz18TGtFtMm55t6WNxd", label: "Pond Fren 148" },
+  { url: "https://t.co/eyhHYxJ0ju", label: "Pond Fren 149" },
+  { url: "https://t.co/KfHUVwWgnW", label: "Pond Fren 150" },
+  { url: "https://t.co/EQlJG323PC", label: "Pond Fren 151" },
+  { url: "https://t.co/3WnrHPUfs8", label: "Pond Fren 152" },
+  { url: "https://t.co/D9qOwCUu4S", label: "Pond Fren 153" },
+  { url: "https://t.co/vWC0OdvDcI", label: "Pond Fren 154" }
 ];
 
 const generateBtn = document.getElementById("generate-btn");
