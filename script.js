@@ -152,7 +152,8 @@ const links = [
   { url: "https://t.co/EQlJG323PC", label: "Pond Fren 151" },
   { url: "https://t.co/3WnrHPUfs8", label: "Pond Fren 152" },
   { url: "https://t.co/D9qOwCUu4S", label: "Pond Fren 153" },
-  { url: "https://t.co/vWC0OdvDcI", label: "Pond Fren 154" }
+  { url: "https://t.co/vWC0OdvDcI", label: "Pond Fren 154" },
+  { url: "https://t.co/DnM65rrKvR", label: "Pond Fren 155" }
 ];
 
 const generateBtn = document.getElementById("generate-btn");
