@@ -166,8 +166,10 @@ const links = [
   { url: "https://t.co/N1SzvS7Y7x", label: "Pond Fren 165" },
   { url: "https://t.co/QreJ47TVPJ", label: "Pond Fren 166" },
   { url: "https://t.co/mQYZc5tPdK", label: "Pond Fren 167" },
-  { url: "https://t.co/LZHKeIhup6", label: "Pond Fren 168" }
-];
+  { url: "https://t.co/b6d7JnQn1R", label: "Pond Fren 168" },
+  { url: "https://t.co/dAw7LNJuE9", label: "Pond Fren 169" },
+  { url: "https://www.pond0x.com/swap/solana?ref=KKd5FSK8wtagoSvzvkicAJgqrnxQumcyX8vfCgWymVz18TGtFtMm55t6WNxd", label: "Pond Fren 170" },
+  { url: "https://t.co/oXLaQQWR9Q", label: "Pond Fren 171" }
 
 const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
