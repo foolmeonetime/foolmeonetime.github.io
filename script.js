@@ -173,8 +173,6 @@ const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
 const backgroundAudio = document.getElementById("background-audio");
 const backgroundVideo = document.getElementById('background-video');
-backgroundVideo.play();
-backgroundVideo.loop = true;
 
 // Create pause button
 const pauseBtn = document.createElement("button");
