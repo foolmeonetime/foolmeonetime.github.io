@@ -160,7 +160,7 @@ const links = [
   { url: "https://t.co/DLKg20lCSV", label: "Pond fren 159" },
   { url: "https://t.co/TbMm1DqGAo", label: "Pond fren 160" },
   { url: "https://t.co/XQ8OfgPSjH", label: "Pond fren 161" },
-  { url: "https://pond0x.com/swap/solana?ref=JzAuvAgJVBMQKTVFgSXaVCpGZp2RBDMW7LFwT8wJsNC8jKCiu85vLb4GqNPg", label: "Link 162" },
+  { url: "https://pond0x.com/swap/solana?ref=JzAuvAgJVBMQKTVFgSXaVCpGZp2RBDMW7LFwT8wJsNC8jKCiu85vLb4GqNPg", Pond fren: "Link 162" },
   { url: "https://t.co/4v7qhqj5k0", label: "Pond fren 163" },
   { url: "https://t.co/yieYHTsbks", label: "Pond fren 164" },
   { url: "https://t.co/N1SzvS7Y7x", label: "Pond fren 165" },
