@@ -155,21 +155,18 @@ const links = [
   { url: "https://t.co/vWC0OdvDcI", label: "Pond Fren 154" },
   { url: "https://t.co/DnM65rrKvR", label: "Pond Fren 155" },
   { url: "https://t.co/gTLkNxHbTx", label: "Pond fren 156" },
-  const links = [
-  // Existing 156 entries go here (from previous list),
-  
-  { url: "https://t.co/7r9KnpoZzD", label: "Link 157" },
-  { url: "https://t.co/JcJRJKDo4h", label: "Link 158" },
-  { url: "https://t.co/DLKg20lCSV", label: "Link 159" },
-  { url: "https://t.co/TbMm1DqGAo", label: "Link 160" },
-  { url: "https://t.co/XQ8OfgPSjH", label: "Link 161" },
+  { url: "https://t.co/7r9KnpoZzD", label: "Pond fren 157" },
+  { url: "https://t.co/JcJRJKDo4h", label: "Pond fren 158" },
+  { url: "https://t.co/DLKg20lCSV", label: "Pond fren 159" },
+  { url: "https://t.co/TbMm1DqGAo", label: "Pond fren 160" },
+  { url: "https://t.co/XQ8OfgPSjH", label: "Pond fren 161" },
   { url: "https://pond0x.com/swap/solana?ref=JzAuvAgJVBMQKTVFgSXaVCpGZp2RBDMW7LFwT8wJsNC8jKCiu85vLb4GqNPg", label: "Link 162" },
-  { url: "https://t.co/4v7qhqj5k0", label: "Link 163" },
-  { url: "https://t.co/yieYHTsbks", label: "Link 164" },
-  { url: "https://t.co/N1SzvS7Y7x", label: "Link 165" },
-  { url: "https://t.co/QreJ47TVPJ", label: "Link 166" },
-  { url: "https://t.co/mQYZc5tPdK", label: "Link 167" },
-  { url: "https://t.co/LZHKeIhup6", label: "Link 168" }
+  { url: "https://t.co/4v7qhqj5k0", label: "Pond fren 163" },
+  { url: "https://t.co/yieYHTsbks", label: "Pond fren 164" },
+  { url: "https://t.co/N1SzvS7Y7x", label: "Pond fren 165" },
+  { url: "https://t.co/QreJ47TVPJ", label: "Pond fren 166" },
+  { url: "https://t.co/mQYZc5tPdK", label: "Pond fren 167" },
+  { url: "https://t.co/LZHKeIhup6", label: "Pond fren 168" }
 ];
 
 const generateBtn = document.getElementById("generate-btn");
