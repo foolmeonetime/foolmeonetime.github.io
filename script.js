@@ -170,6 +170,7 @@ const links = [
   { url: "https://t.co/dAw7LNJuE9", label: "Pond Fren 169" },
   { url: "https://www.pond0x.com/swap/solana?ref=KKd5FSK8wtagoSvzvkicAJgqrnxQumcyX8vfCgWymVz18TGtFtMm55t6WNxd", label: "Pond Fren 170" },
   { url: "https://t.co/oXLaQQWR9Q", label: "Pond Fren 171" }
+  ];
 
 const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
