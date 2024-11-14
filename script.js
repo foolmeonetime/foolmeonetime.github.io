@@ -174,6 +174,12 @@ const linkDisplay = document.getElementById("link-display");
 const backgroundAudio = document.getElementById("background-audio");
 const backgroundVideo = document.getElementById("background-video");
 
+// Wait for the background video to load before playing it
+backgroundVideo.addEventListener("loadeddata", () => {
+  backgroundVideo.play();
+  backgroundVideo.loop = true;
+});
+
 // Create pause button
 const pauseBtn = document.createElement("button");
 pauseBtn.id = "pause-btn";
@@ -183,7 +189,7 @@ document.body.appendChild(pauseBtn);
 generateBtn.addEventListener("click", (event) => {
   const randomIndex = Math.floor(Math.random() * links.length);
   const randomLink = links[randomIndex];
-  linkDisplay.innerHTML = `Your Pond Fren is: <a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
+  linkDisplay.innerHTML = `<a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
 
   // Create ripple effect
   const ripple = document.createElement("div");
@@ -193,9 +199,8 @@ generateBtn.addEventListener("click", (event) => {
   document.body.appendChild(ripple);
   setTimeout(() => ripple.remove(), 600);
 
-  // Play background video
-  backgroundVideo.play();
-  backgroundVideo.loop = true;
+  // Play background audio
+  backgroundAudio.play();
 });
 
 // Play background audio automatically (requires user interaction on some devices)
