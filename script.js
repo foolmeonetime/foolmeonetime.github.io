@@ -172,13 +172,9 @@ const links = [
 const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
 const backgroundAudio = document.getElementById("background-audio");
-const backgroundVideo = document.getElementById("background-video");
-
-// Wait for the background video to load before playing it
-backgroundVideo.addEventListener("loadeddata", () => {
-  backgroundVideo.play();
-  backgroundVideo.loop = true;
-});
+const backgroundVideo = document.getElementById('background-video');
+backgroundVideo.play();
+backgroundVideo.loop = true;
 
 // Create pause button
 const pauseBtn = document.createElement("button");
