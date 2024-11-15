@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TREJ35HH0K"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-TREJ35HH0K');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Discover your Pond Fren with a fun and interactive experience. Generate a random link to a Pond Fren with one click!">
   <meta name="theme-color" content="#0e4d92">
   <title>Pond Link Generator</title>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Preload Media -->
   <link rel="preload" href="My Movie 2.mp4" as="video">
   <link rel="preload" href="WaterSound.mp3" as="audio">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TREJ35HH0K"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TREJ35HH0K');
+  </script>
 </head>
 <body>
   <!-- Background Video -->
   <video
     id="background-video"
+    class="background-video"
     muted
     playsinline
-    aria-hidden="true"
     preload="auto"
-    class="background-video"
+    loop
+    aria-hidden="true"
   >
     <source src="My Movie 2.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
   <!-- Background Audio -->
-  <audio id="background-audio" autoplay loop preload="auto">
+  <audio id="background-audio" preload="auto" loop>
     <source src="WaterSound.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
@@ -47,10 +53,10 @@
     <div id="link-display" aria-live="polite"></div>
   </div>
 
-  <!-- Pause/Play Button -->
-  <button id="pause-btn" aria-label="Pause video" class="control-btn">⏸️</button>
+  <!-- Pause/Play Button for Audio -->
+  <button id="pause-btn" aria-label="Pause audio" class="control-btn">⏸️</button>
 
-  <!-- JavaScript Files -->
+  <!-- JavaScript File -->
   <script src="script.js" defer></script>
 </body>
 </html>
