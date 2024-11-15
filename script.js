@@ -184,9 +184,19 @@ pauseBtn.textContent = "Pause Audio";
 document.body.appendChild(pauseBtn);
 
 generateBtn.addEventListener("click", (event) => {
-  const randomIndex = Math.floor(Math.random() * links.length);
-  const randomLink = links[randomIndex];
-  linkDisplay.innerHTML = `<a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
+    // Generate a random link
+    const randomIndex = Math.floor(Math.random() * links.length);
+    const randomLink = links[randomIndex];
+    linkDisplay.innerHTML = `<a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
+
+    // Play the background video
+    const backgroundVideo = document.getElementById('background-video');
+    if (backgroundVideo.paused) {
+        backgroundVideo.play().catch((error) => {
+            console.error('Autoplay failed:', error);
+        });
+    }
+});
 
   // Create ripple effect
   const ripple = document.createElement("div");
