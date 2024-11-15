@@ -175,13 +175,10 @@ const links = [
 const generateBtn = document.getElementById("generate-btn");
 const linkDisplay = document.getElementById("link-display");
 const backgroundAudio = document.getElementById("background-audio");
+const backgroundVideo = document.getElementById("background-video");
+const pauseBtn = document.getElementById("pause-btn");
 
-// Create pause button
-const pauseBtn = document.createElement("button");
-pauseBtn.id = "pause-btn";
-pauseBtn.textContent = "Pause Audio";
-document.body.appendChild(pauseBtn);
-
+// Generate Button Click Event
 generateBtn.addEventListener("click", (event) => {
     // Generate a random link
     const randomIndex = Math.floor(Math.random() * links.length);
@@ -189,40 +186,37 @@ generateBtn.addEventListener("click", (event) => {
     linkDisplay.innerHTML = `<a class="pond-fren" href="${randomLink.url}" target="_blank">${randomLink.label}</a>`;
 
     // Play the background video
-    const backgroundVideo = document.getElementById('background-video');
     if (backgroundVideo.paused) {
         backgroundVideo.play().catch((error) => {
-            console.error('Autoplay failed:', error);
+            console.error('Video autoplay failed:', error);
+        });
+    }
+
+    // Create ripple effect
+    const ripple = document.createElement("div");
+    ripple.classList.add("ripple");
+    ripple.style.left = `${event.clientX - 50}px`;
+    ripple.style.top = `${event.clientY - 50}px`;
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+
+    // Play the background audio
+    if (backgroundAudio.paused) {
+        backgroundAudio.play().catch((error) => {
+            console.error('Audio autoplay failed:', error);
         });
     }
 });
 
-  // Create ripple effect
-  const ripple = document.createElement("div");
-  ripple.classList.add("ripple");
-  ripple.style.left = `${event.clientX - 50}px`;
-  ripple.style.top = `${event.clientY - 50}px`;
-  document.body.appendChild(ripple);
-  setTimeout(() => ripple.remove(), 600);
-
-  // Play background audio
-  backgroundAudio.play();
-});
-
-// Play background audio automatically (requires user interaction on some devices)
-backgroundAudio.play().catch(() => {
-  generateBtn.addEventListener("click", () => {
-    backgroundAudio.play();
-  });
-});
-
-// Pause button functionality
+// Pause/Play Button for Audio
 pauseBtn.addEventListener("click", () => {
-  if (backgroundAudio.paused) {
-    backgroundAudio.play();
-    pauseBtn.textContent = "Pause Audio";
-  } else {
-    backgroundAudio.pause();
-    pauseBtn.textContent = "Play Audio";
-  }
+    if (backgroundAudio.paused) {
+        backgroundAudio.play();
+        pauseBtn.textContent = "⏸️";
+        pauseBtn.setAttribute("aria-label", "Pause audio");
+    } else {
+        backgroundAudio.pause();
+        pauseBtn.textContent = "▶️";
+        pauseBtn.setAttribute("aria-label", "Play audio");
+    }
 });
